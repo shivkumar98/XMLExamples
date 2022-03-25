@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient
+	xmlns:tns="http://www.example.org/ChoiceGroupExample"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/ChoiceGroupExample ChoiceGroup.xsd ">
+	<!-- only one of the below elements can be defined in this instance: 
+		<tns:weightLbs>0.0</tns:weightLbs> 
+		<tns:WeightKg>12</tns:WeightKg> 
+			Having more than 1 or having none will invalidate the instance -->
+	<tns:WeightKg>12</tns:WeightKg>
+</tns:Patient>

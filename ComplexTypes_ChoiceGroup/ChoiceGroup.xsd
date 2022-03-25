@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/ChoiceGroupExample"
+	xmlns:tns="http://www.example.org/ChoiceGroupExample"
+	elementFormDefault="qualified">
+	
+	<element name="Patient" type="tns:PatientHealth"></element>
+	
+	<!-- a choice group indicates that only one of the child elements can appear within the element
+		 it is assigned to -->
+	<complexType name="PatientHealth">
+		<choice>
+			<element name="weightLbs" type="decimal"/>
+			<element name="WeightKg" type="integer"/>
+		</choice>
+	</complexType>
+</schema>

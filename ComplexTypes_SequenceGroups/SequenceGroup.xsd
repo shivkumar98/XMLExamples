@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/SequenceGroup"
+	xmlns:tns="http://www.example.org/SequenceGroup"
+	elementFormDefault="qualified">
+	
+	<!-- A sequence group indicates that elements must appear in the order specified in the schema
+		 We can make elements optional or unbounded in their appearence
+		 We can use the facets minOccurs and maxOccurs -->
+		 
+	<element name="Patient" type="tns:sequenceGroup"/>	 
+	
+	<complexType name="sequenceGroup">
+		<sequence>
+			<element name="weight" type="integer"/>
+			<element name="height" type="integer"/>
+			<element name="age" type="integer"/>
+			<element name="disease" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</schema>

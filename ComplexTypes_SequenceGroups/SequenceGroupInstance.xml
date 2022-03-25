@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient xmlns:tns="http://www.example.org/SequenceGroup" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SequenceGroup SequenceGroup.xsd ">
+  <tns:weight>0</tns:weight>
+  <tns:height>0</tns:height>
+  
+  <tns:age>0</tns:age>
+  <!--  The following element is optional
+  		We can also include multiple diseases but they must appear together
+  		I.e. we can not have a disease element at the top -->
+  <tns:disease>Cancer</tns:disease>
+  <tns:disease>Diabetes</tns:disease>
+  <tns:disease>Heart Disease</tns:disease>
+  
+</tns:Patient>
