@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="shivkumar.org/named" xmlns:tns="shivkumar.org/named">
+
+	<!-- * Simple and complex types can either be named or annoymouse * We define 
+		named types globally, which then can be assigned to the type of an element -->
+
+	<element name="product" type="tns:product"/>
+	<complexType name="product">
+		<sequence>
+			<element name="Dress" type="tns:SizeType" />
+		</sequence>
+	</complexType>
+
+	<element name="Dress" type="tns:SizeType" />
+	
+	<!-- named simple type: -->
+	<simpleType name="SizeType">
+		<restriction base="integer">
+			<minInclusive value="2" />
+			<maxInclusive value="18" />
+		</restriction>
+	</simpleType>
+	
+</schema>

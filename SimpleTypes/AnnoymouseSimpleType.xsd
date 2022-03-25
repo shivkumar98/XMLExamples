@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.shivkumar.org/AnnoymouseSimpleType"
+	xmlns:tns="http://www.shivkumar.org/AnnoymouseSimpleType"
+	elementFormDefault="qualified">
+
+	<!-- * Annoymous simple types do not have a globalised type, instead the 
+		type is defined locally to the simple type -->
+
+
+	<element name="product">
+		<complexType>
+			<sequence>
+				<element name="dress">
+					<!-- Annoymouse simple type: -->
+					<simpleType>
+						<restriction base="integer">
+							<minInclusive value="2" />
+							<maxInclusive value="20" />
+						</restriction>
+					</simpleType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

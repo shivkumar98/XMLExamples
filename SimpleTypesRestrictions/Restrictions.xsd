@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Restrictions"
+	xmlns:tns="http://www.example.org/Restrictions"
+	elementFormDefault="qualified">
+
+	<!-- Creating a named simple type for demonstration purposes: -->
+	<simpleType name="IntegerRestriction100">
+		<!-- Restriction on numerical types -->
+		<restriction base="integer">
+			<minInclusive value="0" />
+			<maxInclusive value="100" />
+		</restriction>
+	</simpleType>
+
+	<element name="RestrictionsExample">
+		<complexType>
+			<sequence>
+				<element name="numberRange" type="tns:IntegerRestriction100" />
+
+				<element name="numberRangeRestriction">
+					<simpleType>
+						<!-- We can also use user-defined types for the base value -->
+						<restriction base="tns:IntegerRestriction100">
+							<!-- The restrictions must restrict the valid space of the base type -->
+							<maxExclusive value="20"></maxExclusive>
+							<!-- If the restriction expanded the valid space then an error would 
+								be generated -->
+							<!-- E.g. <maxExclusive value="101"></maxExclusive> would be invalid -->
+							<minExclusive value="1"></minExclusive>
+						</restriction>
+					</simpleType>
+				</element>
+
+				<element name="StringLength">
+					<simpleType>
+						<!-- Restrictions on strings include, length, min/max value, pattern -->
+						<restriction base="string">
+							<maxLength value="10"></maxLength>
+						</restriction>
+					</simpleType>
+				</element>
+				<element name="StringPattern">
+					<simpleType>
+						<restriction base="string">
+							<pattern value="\d{3}-[A-Z]{2}" />
+						</restriction>
+					</simpleType>
+				</element>
+
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>

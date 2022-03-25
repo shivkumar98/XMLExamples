@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:RestrictionsExample
+	xmlns:tns="http://www.example.org/Restrictions"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/Restrictions Restrictions.xsd ">
+	<tns:numberRange>20</tns:numberRange>
+	<tns:numberRangeRestriction>19</tns:numberRangeRestriction>
+	<tns:StringLength>123</tns:StringLength>
+	<tns:StringPattern>123-AB</tns:StringPattern>
+</tns:RestrictionsExample>

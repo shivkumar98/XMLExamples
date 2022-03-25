@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.shivkumar.org/Patient"
+	xmlns:tns="http://www.shivkumar.org/Patient"
+	elementFormDefault="qualified">
+
+	<!-- * We shall create a schema to create xml files for patientsw * The 
+		patients have the following data fields: name, age, email, gender, phone -->
+	<complexType name="Patient">
+		<sequence>
+			<element name="name">
+				<!-- Using an anonymous simple type: -->
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="15"></maxLength>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="age" type="integer" />
+			<element name="email" type="string" />
+			<element name="gender" type="string"/> 
+			<element name="phone" type="string" />
+		</sequence>
+	</complexType>
+
+
+</schema>
