@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/ChoiceExample"
+	xmlns:tns="http://www.example.org/ChoiceExample"
+	elementFormDefault="qualified">
+
+	<!-- The choice model group choice is used to indicate that only one of 
+		the elements should appear -->
+	<!-- Let's apply a choice group to the insurance field of our Patient schema -->
+
+	<element name="Patient" type="tns:Patient"/>
+	
+	<complexType name="InsuranceType">
+		<choice>
+			<element name="cash" type="integer" />
+			<element name="insurance" type="string" />
+		</choice>
+	</complexType>
+
+	<complexType name="Patient">
+		<sequence>
+			<element name="name">
+				<!-- Using an anonymous simple type: -->
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="15"></maxLength>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="age" type="integer" />
+			<element name="email" type="string" />
+			<element name="gender" type="string" />
+			<element name="phone" type="string" />
+			<!-- Assigning a complex type with a choice group: -->
+			<element name="insurance" type="tns:InsuranceType" />
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Patient
+	xmlns:tns="http://www.example.org/ChoiceExample"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/ChoiceExample ChoiceExample.xsd ">
+	<tns:name>tns:name</tns:name>
+	<tns:age>0</tns:age>
+	<tns:email>tns:email</tns:email>
+	<tns:gender>tns:gender</tns:gender>
+	<tns:phone>tns:phone</tns:phone>
+	<tns:insurance>
+		<tns:cash>0</tns:cash>
+		<!-- Since we made this a choice group, the XML processor will not accept 
+			more than 1 child elements If we included the below line it would generate 
+			an error: 
+		<tns:insurance>NHS</tns:insurance>
+			-->
+	</tns:insurance>
+</tns:Patient>
