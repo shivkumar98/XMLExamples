@@ -16,8 +16,7 @@
 ## XML Validator
 - XML files can be validated using an XML schema from on XSD file (another type of XML file)
 
-    -   An XML file is well-formed provided that:
-    -	There is a root document. I.e., there is an enclosing tag around all elements
+-   An XML file is well-formed provided that:
     -	Each open tag is closed and are case sensitive.
     -   Attribute values are quoted (single or double)
     -   Elements are properly nested (it may be illegal to have a specific nesting pattern)
@@ -180,102 +179,115 @@ Elements
 -	Things like strings, dates, numbers are represented by the simple types
 
 ### Summary
-Category	Built-in-types
-Strings and names	string, normalizedString, token, Name, NCName, QName, language
-Numeric	float, double, decimal, integer, long, int, short, byte, positiveInteger, nonPositiveInteger, negativeInteger, nonNegativeInteger, unsignedLong, unsignedInt, unsignedShort, unsignedByte
-Date and Time	duration, dateTime, date, time, gYear, gYearMonth, gMonth, gMonthDay, gDay, 1.1 dayTimeDuration, 1.1 yearMonthDuration, 1.1 dateTimeStamp
-XML DTD types	ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN,
-NMTOKENS, NOTATION
-Other	boolean, hexBinary, base64Binary, anyURI
+| **Category**             | **Built-in-types**                                                              |
+|--------------------------|---------------------------------------------------------------------------------|
+|     Strings and names    | string, normalizedString, token, Name, NCName, QName, language                  |
+| Numeric                  | float, double, decimal, integer, long, int, short, byte, etc                    |
+| Date and Time            | duration, dateTime, date, time, gYear, gYearMonth, gMonth, gMonthDay, gDay, etc |
+| XML DTD types            | ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, etc                               |
+| Other                    | boolean, hexBinary, base64Binary, anyURI                                        |
 
  
-Creating Simple Types
-Named and Anonymous Types
-•	A named type is a type which has a name and is defined globally:
-<xs:element name="Dress" type="tns:SizeType" />
-<xs:simpleType name="SizeType">
-	<xs:restriction base="xs:integer">
-		<xs:minInclusive value="2" />
-		<xs:maxInclusive value="18" />
-	</xs:restriction>
-</xs:simpleType>
+## Creating Simple Types
 
-Named type instance:
-<tns:product xmlns:tns="shivkumar.org/named"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="shivkumar.org/named NamedSimpleType.xsd ">
-	<Dress>2</Dress>
-</tns:product>
+### Named and Anonymous Types
+
+-	A named type is a type which has a name and is defined globally:
+
+        <xs:element name="Dress" type="tns:SizeType" />
+        <xs:simpleType name="SizeType">
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="2" />
+                <xs:maxInclusive value="18" />
+            </xs:restriction>
+        </xs:simpleType>
+
+    - Named type instance:
+
+            <tns:product xmlns:tns="shivkumar.org/named"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="shivkumar.org/named NamedSimpleType.xsd ">
+                <Dress>2</Dress>
+            </tns:product>
 
 
-•	An anonymous simple type is defined locally of the element using it
-<element name="Dress">
-	<!-- Anonymous simple type: -->
-	<simpleType>
-		<restriction base="integer">
-			<minInclusive value="2" />
-			<maxInclusive value="20" />
-		</restriction>
-	</simpleType>
-</element>
+-	An anonymous simple type is defined locally of the element using it
+
+        <element name="Dress">
+            <!-- Anonymous simple type: -->
+            <simpleType>
+                <restriction base="integer">
+                    <minInclusive value="2" />
+                    <maxInclusive value="20" />
+                </restriction>
+            </simpleType>
+        </element>
 	
-	Anonymous type instance:
-	<element name="dress">
-	<!-- Anonymous simple type: -->
-	<simpleType>
-		<restriction base="integer">
-		      <minInclusive value="2" />
-		      <maxInclusive value="20" />
-	      </restriction>
-	</simpleType>
-</element>
+	- Anonymous type instance:
+
+            <element name="dress">
+                <!-- Anonymous simple type: -->
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="2" />
+                        <maxInclusive value="20" />
+                    </restriction>
+                </simpleType>
+            </element>
  
-Simple Type Restrictions
-•	Every simple type is a restriction of another simple type – we are also able to extend simple types to other simple types
-•	You will typically see restrictions having a base type of an inbuilt type (e.g., strings, number…) but you can also have a user defined base type
-•	If we are using a user-defined simple type, we must be aware that the restriction MUST restrict the valid space and NOT extend it
-Example: Restriction with in-built base type
-<!-- Creating a named simple type for demonstration purposes: -->
-<simpleType name="IntegerRestriction100">
-	<!-- Restriction on numerical types -->
-	<restriction base="integer">
-		<minInclusive value="0" />
-		<maxInclusive value="100" />
-	</restriction>
-</simpleType>
+## Simple Type Restrictions
+- 	Every simple type is a restriction of another simple type – we are also able to extend simple types to other simple types
+-	You will typically see restrictions having a base type of an inbuilt type (e.g., strings, number…) but you can also have a user defined base type
+-	If we are using a user-defined simple type, we must be aware that the restriction MUST restrict the valid space and NOT extend it
 
-<element name="numberRange" type="tns:IntegerRestriction100" />
+    - Example: Restriction with in-built base type
 
-•	In this example we have a base which is of the inbuilt type “integer”
-•	So, our instance could be: 
-<tns:numberRange>20</tns:numberRange>
 
-Example: Restriction with user-defined base type
-<element name="numberRangeRestriction">
-	<simpleType>
-	<!-- We can also use user-defined types for the base value -->
-		<restriction base="tns:IntegerRestriction100">
-		<!-- The restrictions must restrict the valid space of      the base type -->
-			<maxExclusive value="20"></maxExclusive>
-			<minExclusive value="1"></minExclusive>
-		</restriction>
-	</simpleType>
-</element>
+            <simpleType name="IntegerRestriction100">
+                <!-- Restriction on numerical types -->
+                <restriction base="integer">
+                    <minInclusive value="0" />
+                    <maxInclusive value="100" />
+                </restriction>
+            </simpleType>
 
-•	If we set the value of maxExclusive to “120” for example, it would generate an error since 119 is outside the valid space of “tns:IntegerRestriction100”
-Example: Restrictions using Regex
-•	We are also able to apply regular expression patterns as a restriction
-•	E.g., we can create a pattern so that only a 3 digit number followed by a hyphen is allowed
-<element name="StringPattern">
-	<simpleType>
-		<restriction base="string">
-			<pattern value="\d{3}-[A-Z]{2}" />
-		</restriction>
-	</simpleType>
-</element>
+            <element name="numberRange" type="tns:IntegerRestriction100" />
 
-Simple Type Summary
-Restriction Facets Summary
+    -	In this example we have a base which is of the inbuilt type “integer”
+    -	So, our instance could be: 
+
+            <tns:numberRange>20</tns:numberRange>
+
+## Example: Restriction with user-defined base type
+
+    <element name="numberRangeRestriction">
+        <simpleType>
+        <!-- We can also use user-defined types for the base value -->
+            <restriction base="tns:IntegerRestriction100">
+            <!-- The restrictions must restrict the valid space of      the base type -->
+                <maxExclusive value="20"></maxExclusive>
+                <minExclusive value="1"></minExclusive>
+            </restriction>
+        </simpleType>
+    </element>
+
+-	If we set the value of maxExclusive to “120” for example, it would generate an error since 119 is outside the valid space of “tns:IntegerRestriction100”
+
+## Example: Restrictions using Regex
+ 
+-	We are also able to apply regular expression patterns as a restriction
+-	E.g. we can create a pattern so that only a 3 digit number followed by a hyphen is allowed
+
+        <element name="StringPattern">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value="\d{3}-[A-Z]{2}" />
+                </restriction>
+            </simpleType>
+        </element>
+
+## Simple Type Summary
+### Restriction Facets Summary
 Facet	Meaning
 minExclusive	Value must be greater than x
 minInclusive	Value must be greater than or equal to x
