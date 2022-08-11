@@ -70,10 +70,10 @@ Elements
             <Child3></Child3>
         </ParentElement>
 
-Attributes
-•	Attributes are also knowns as facets
-•	They provide additional data to an element
-•	We could use an attribute to provide a link to an entity
+## Attributes
+-	Attributes are also knowns as facets
+-	They provide additional data to an element
+-	We could use an attribute to provide a link to an entity
  
 # XML Schemas
 ## What is an XML Schema?
@@ -110,65 +110,76 @@ Attributes
         </xs:simpleType>
     </xs:schema>
 
-Product.xml:
-<?xml version="1.0" encoding="UTF-8"?>
-<product effDate="2001-04-12">
-	<number>557</number>
-	<size>10</size>
-</product>
-
-
-
-
+### Product.xml:
+        <?xml version="1.0" encoding="UTF-8"?>
+        <product effDate="2001-04-12">
+            <number>557</number>
+            <size>10</size>
+        </product>
 
  
-XML Schema Definitions: Simple Types
-Simple and Complex types
-•	To get a grasp of how to define XML schemas we need to understand what exactly simple types and complex types are
-•	Elements of an XML instance can either be of simple or complex type
-Simple Type
-•	Have a no child elements and do not have attributes
-•	We can distinguish simple types further to
-1)	Atomic Types: values which are indivisible. E.g., <size>10</size>
-2)	List Types: whitespace separated atomic values. E.g., <size> 10  Large  M </size>
-3)	Union Types: This is a type which has a valid space of two or more simple types. E.g., if we had a simple type with a range of 2-10 and another with S|R|L, then a simple type of these two combined would yield a union type
-Examples:
-<size>10</size>
-<comment>Runs large.</comment>
-<availableSizes>10 large 2</availableSizes>
+# XML Schema Definitions: Simple Types
+## Simple and Complex types
+- 	To get a grasp of how to define XML schemas we need to understand what exactly simple types and complex types are
+-	Elements of an XML instance can either be of simple or complex type
 
-<size system="US-DRESS">10</size>
-<comment>Runs <b>large</b>.</comment>
-<availableSizes><size>10</size><size>2</size></availableSizes>
+## Simple Type
+-	Have a no child elements and do not have attributes
+-	We can distinguish simple types further to
+    1)	Atomic Types: values which are indivisible. E.g., &lt;size&gt;10&lt;/size&gt;
+    2)	List Types: whitespace separated atomic values. E.g., &lt;size&gt; 10  Large  M &lt;/size&gt;
+    3)	Union Types: This is a type which has a valid space of two or more simple types. E.g., if we had a simple type with a range of 2-10 and another with S | R | L, then a simple type of these two combined would yield a union type
 
-Complex Type
-•	A complex type may have child attributes and/or attributes
-•	We can distinguish Complex Types into four categories:
-1)	Simple Content: there are no child elements but the type allows for attributes
-Example:
-<size system="US-DRESS">10</size>
-2)	Empty Content: No child elements and no text. Only has attribute
-Example:
-<picture src="servername/filename"></picture>
-3)	Element-Only Content: Child elements defined but no character data within parent element itself (only within child elements)
-Example:
-<product>
-	<number>557</number>
-	<name>Short-Sleeved Linen Blouse</name>
-	<size system="US-DRESS">10</size>
-	<color value="blue" />
-</product>
-4)	Mixed Content: Child elements with intermingled characters in parent element
-Example:
-<desc>This is our <i>best-selling</i> shirt.
- <b>Note: </b> runs <u>large</u>.</desc>
+### Examples:
+    <size>10</size>
+    <comment>Runs large.</comment>
+    <availableSizes>10 large 2</availableSizes>
 
-•	We have the ability to constrain our XML files to fit into these content models
+    <size system="US-DRESS">10</size>
+    <comment>Runs <b>large</b>.</comment>
+    <availableSizes><size>10</size><size>2</size></availableSizes>
+
+ ## Complex Type
+-	A complex type may have child attributes and/or attributes
+-	We can distinguish Complex Types into four categories:
+    
+    **1)	Simple Content: there are no child elements but the type allows for attributes**
+        
+       Example:
+
+               <size system="US-DRESS">10</size>
+    
+    **2)	Empty Content: No child elements and no text. Only has attribute**
+        
+       Example:
+
+            <picture src="servername/filename"></picture>
+
+    **3)	Element-Only Content: Child elements defined but no character data within parent element itself (only within child elements)**
+        
+    Example:
+
+            <product>
+                <number>557</number>
+                <name>Short-Sleeved Linen Blouse</name>
+                <size system="US-DRESS">10</size>
+                <color value="blue" />
+            </product>
+    **4)	Mixed Content: Child elements with intermingled characters in parent element**
+    
+     Example:
+
+            <desc>This is our <i>best-selling</i> shirt.
+            <b>Note: </b> runs <u>large</u>.</desc>
+
+-	We have the ability to constrain our XML files to fit into these content models
  
-Built in Simple Types
-•	There are 49 built-in simple types in the XML schema recommendation.
-•	Things like strings, dates, numbers are represented by the simple types
-Summary
+
+## Built in Simple Types
+-	There are 49 built-in simple types in the XML schema recommendation.
+-	Things like strings, dates, numbers are represented by the simple types
+
+### Summary
 Category	Built-in-types
 Strings and names	string, normalizedString, token, Name, NCName, QName, language
 Numeric	float, double, decimal, integer, long, int, short, byte, positiveInteger, nonPositiveInteger, negativeInteger, nonNegativeInteger, unsignedLong, unsignedInt, unsignedShort, unsignedByte
