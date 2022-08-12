@@ -110,11 +110,11 @@ Elements
     </xs:schema>
 
 ### Product.xml:
-        <?xml version="1.0" encoding="UTF-8"?>
-        <product effDate="2001-04-12">
-            <number>557</number>
-            <size>10</size>
-        </product>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <product effDate="2001-04-12">
+        <number>557</number>
+        <size>10</size>
+    </product>
 
  
 # XML Schema Definitions: Simple Types
@@ -125,9 +125,14 @@ Elements
 ## Simple Type
 -	Have a no child elements and do not have attributes
 -	We can distinguish simple types further to
-    1)	Atomic Types: values which are indivisible. E.g., &lt;size&gt;10&lt;/size&gt;
-    2)	List Types: whitespace separated atomic values. E.g., &lt;size&gt; 10  Large  M &lt;/size&gt;
-    3)	Union Types: This is a type which has a valid space of two or more simple types. E.g., if we had a simple type with a range of 2-10 and another with S | R | L, then a simple type of these two combined would yield a union type
+    **1)	Atomic Types**: values which are indivisible.
+    - E.g., &lt;size&gt;10&lt;/size&gt;
+    
+    **2)	List Types**: whitespace separated atomic values.
+    - E.g., &lt;size&gt; 10  Large  M &lt;/size&gt;
+    
+    **3)	Union Types**: This is a type which has a valid space of two or more simple types. 
+    - E.g. if we had a simple type with a range of 2-10 and another with S | R | L, then a simple type of these two combined would yield a union type
 
 ### Examples:
     <size>10</size>
@@ -142,28 +147,25 @@ Elements
 -	A complex type may have child attributes and/or attributes
 -	We can distinguish Complex Types into four categories:
     
-    **1)	Simple Content: there are no child elements but the type allows for attributes**
+    **1)	Simple Content:** there are no child elements but the type allows for attributes
         
-       Example:
-
-               <size system="US-DRESS">10</size>
+       - Example: &lt;size system="US-DRESS"&gt;10&lt;/size&gt;
     
-    **2)	Empty Content: No child elements and no text. Only has attribute**
+    **2)	Empty Content:** No child elements and no text. Only has attribute
         
-       Example:
+       - Example: &lt;picture src="servername/filename">&lt;picture>
 
-            <picture src="servername/filename"></picture>
-
-    **3)	Element-Only Content: Child elements defined but no character data within parent element itself (only within child elements)**
+    **3)	Element-Only Content:** Child elements defined but no character data within parent element itself (only within child elements)
         
-    Example:
-
+    - Example:
+    
             <product>
                 <number>557</number>
                 <name>Short-Sleeved Linen Blouse</name>
-                <size system="US-DRESS">10</size>
-                <color value="blue" />
+                    <size system="US-DRESS">10</size>
+                    <color value="blue" />
             </product>
+            
     **4)	Mixed Content: Child elements with intermingled characters in parent element**
     
      Example:
@@ -258,7 +260,7 @@ Elements
 
             <tns:numberRange>20</tns:numberRange>
 
-## Example: Restriction with user-defined base type
+### Example: Restriction with user-defined base type
 
     <element name="numberRangeRestriction">
         <simpleType>
@@ -273,7 +275,7 @@ Elements
 
 -	If we set the value of maxExclusive to “120” for example, it would generate an error since 119 is outside the valid space of “tns:IntegerRestriction100”
 
-## Example: Restrictions using Regex
+### Example: Restrictions using Regex
  
 -	We are also able to apply regular expression patterns as a restriction
 -	E.g. we can create a pattern so that only a 3 digit number followed by a hyphen is allowed
@@ -288,21 +290,17 @@ Elements
 
 ## Simple Type Summary
 ### Restriction Facets Summary
-Facet	  | Meaning
-minExclusive	Value must be greater than x
-minInclusive	Value must be greater than or equal to x
-maxInclusive	Value must be less than or equal to x
-minInclusive	Value must greater than or equal to x
-length	The length of the value must be equal to x
-minLength	The length must be greater than or equal to x
-maxLength	The length must be less than or equal to x
-totalDigits	The number of significant digits must be less than or equal to x
-fractionDigits	The number of fractional digits must be less than or equal to x
-whiteSpace	The schema processor should either preserve, replace or collapse the whitespace
-enumeration	x is one of the valid values
-pattern 	x is one of the regular expressions that the value may match
-explicitTimezone	The time zone of date/time value is required, optional or prohibited
-assertion	The value must conform to a constraint in the XPath expression
+
+| **Facet**           | **Meaning**                                                                     |
+|---------------------|---------------------------------------------------------------------------------|
+|     minExclusive    |     Value must be   greater than x                                              |
+|     maxInclusive    |    Value must be less than x                                                    |
+| Length              | duration, dateTime, date, time, gYear, gYearMonth, gMonth, gMonthDay, gDay, etc |
+| MinLength           | ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, etc                               |
+| whiteSpace          | boolean, hexBinary, base64Binary, anyURI                                        |
+| enumeration         | x is one of the valid values                                                    |
+| pattern             | x is one of the regular expressions that the value may match                    |
+| assertion           | The value must conform to a constraint in the XPath expression                  |
 
 ## Example Use Case: Patient Information
 - 	We need to create a schema file to hold patient information
