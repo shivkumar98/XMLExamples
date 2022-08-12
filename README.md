@@ -165,10 +165,10 @@ Elements
                     <size system="US-DRESS">10</size>
                     <color value="blue" />
             </product>
-            
+
     **4)	Mixed Content: Child elements with intermingled characters in parent element**
     
-     Example:
+    - Example:
 
             <desc>This is our <i>best-selling</i> shirt.
             <b>Note: </b> runs <u>large</u>.</desc>
@@ -236,7 +236,7 @@ Elements
                     </restriction>
                 </simpleType>
             </element>
- 
+            
 ## Simple Type Restrictions
 - 	Every simple type is a restriction of another simple type – we are also able to extend simple types to other simple types
 -	You will typically see restrictions having a base type of an inbuilt type (e.g., strings, number…) but you can also have a user defined base type
