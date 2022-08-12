@@ -288,7 +288,7 @@ Elements
 
 ## Simple Type Summary
 ### Restriction Facets Summary
-Facet	Meaning
+Facet	  | Meaning
 minExclusive	Value must be greater than x
 minInclusive	Value must be greater than or equal to x
 maxInclusive	Value must be less than or equal to x
@@ -304,84 +304,85 @@ pattern 	x is one of the regular expressions that the value may match
 explicitTimezone	The time zone of date/time value is required, optional or prohibited
 assertion	The value must conform to a constraint in the XPath expression
 
-Example Use Case: Patient Information
-•	We need to create a schema file to hold patient information
-•	The current fields we need to collect are the patients name, age, gender, email, and phone.
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://www.shivkumar.org/Patient"
-	xmlns:tns="http://www.shivkumar.org/Patient"
-	elementFormDefault="qualified">
+## Example Use Case: Patient Information
+- 	We need to create a schema file to hold patient information
+- 	The current fields we need to collect are the patients name, age, gender, email, and phone.
 
-	<!-- * We shall create a schema to create xml files for patients
-           * The patients have the following data fields: name, age, email,             
-             gender, phone -->
-	<complexType name="Patient">
-		<sequence>
-			<element name="name">
-				<!-- Using an anonymous simple type: -->
-				<simpleType>
-					<restriction base="string">
-						<maxLength value="15"></maxLength>
-					</restriction>
-				</simpleType>
-			</element>
-			<element name="age" type="integer" />
-			<element name="email" type="string" />
-			<element name="gender" type="string"/> 
-			<element name="phone" type="string" />
-		</sequence>
-	</complexType>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.shivkumar.org/Patient" xmlns:tns="http://www.shivkumar.org/Patient" elementFormDefault="qualified">
 
-</schema>
+        <!-- * We shall create a schema to create xml files for patients * The patients have the following data fields: name, age, email, gender, phone -->
+        
+        <complexType name="Patient">
+            <sequence>
+                <element name="name">
+                    <!-- Using an anonymous simplet type: -->
+                    <simpleType>
+                        <restriction base="string">
+                            <maxLength value="15"></maxLength>
+                        </restriction>
+                    </simpleType>
+                </element>
+                <element name="age" type="integer" />
+                <element name="email" type="string" />
+                <element name="gender" type="string"/> 
+                <element name="phone" type="string" />
+            </sequence>
+        </complexType>
 
-Creating Complex Types 
-Complex Types Definition
-•	We’ve defined a complex as a type which has an attribute and/or child elements. 
-•	Complex Types have 4 different content models: simple content (text and attributes), empty (no text but has attributes), element only (no intermingled text), mixed (intermingled text)
-•	We can deterministically define what model our complex types will fit into
-•	Using model groups like sequence, all, choice lets us define the ordering and occurrence of elements
-Choice Model Group
-•	The choice model group allows only one element to be defined in the instance.
-•	Having 0 or >1 will yield an error
-Example
-<element name="Patient" type="tns:PatientHealth"></element>
-	<complexType name="PatientHealth">
-	<choice>
-		<element name="weightLbs" type="decimal"/>
-		<element name="WeightKg" type="integer"/>
-	</choice>
-</complexType>
+    </schema>
 
-<tns:Patient
-	xmlns:tns="http://www.example.org/ChoiceGroupExample"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.example.org/ChoiceGroupExample ChoiceGroup.xsd ">
-	<tns:WeightKg>12</tns:WeightKg>
-</tns:Patient>
+## Creating Complex Types 
 
-Sequence Model Group
-•	We have already used this model group in our Patient use case example
-•	It simply indicates that the elements must appear in the same order as the elements in the sequence group
-•	We can use facets like minOccurs and MaxOccurs to make element optional or enable them to appear multiple times
-Example
-<element name="Patient" type="tns:sequenceGroup"/>	 
-<complexType name="sequenceGroup">
-	<sequence>
-		<element name="weight" type="integer"/>
-		<element name="height" type="integer"/>
-		<element name="age" type="integer"/>
-		<element name="disease" type="string" minOccurs="0" 
-                            maxOccurs="unbounded"/>
-	</sequence>
-</complexType>
+#### Complex Types Definition
 
-  <!--  The following element is optional
-  		We can also include multiple diseases but they must appear together
-  		I.e. we can not have a disease element at the top -->
-  <tns:disease>Cancer</tns:disease>
-  <tns:disease>Diabetes</tns:disease>
-  <tns:disease>Heart Disease</tns:disease>
+-	We’ve defined a complex as a type which has an attribute and/or child elements. 
+-	Complex Types have 4 different content models: simple content (text and attributes), empty (no text but has attributes), element only (no intermingled text), mixed (intermingled text)
+-	We can deterministically define what model our complex types will fit into
+-	Using model groups like sequence, all, choice lets us define the ordering and occurrence of elements
+
+### Choice Model Group
+-	The choice model group allows only one element to be defined in the instance.
+-	Having 0 or >1 will yield an error
+
+#### Example
+
+    <element name="Patient" type="tns:PatientHealth"></element>
+    <complexType name="PatientHealth">
+        <choice>
+            <element name="weightLbs" type="decimal"/>
+                <element name="WeightKg" type="integer"/>
+        </choice>
+    </complexType>
+
+    <tns:Patient xmlns:tns="http://www.example.org/ChoiceGroupExample" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/ChoiceGroupExample ChoiceGroup.xsd ">
+        <tns:WeightKg>12</tns:WeightKg>
+    </tns:Patient>
+
+## Sequence Model Group
+- 	We have already used this model group in our Patient use case example
+-	It simply indicates that the elements must appear in the same order as the elements in the sequence group
+-	We can use facets like minOccurs and MaxOccurs to make element optional or enable them to appear multiple times
+
+### Example
+
+    <element name="Patient" type="tns:sequenceGroup"/>	 
+    <complexType name="sequenceGroup">
+        <sequence>
+            <element name="weight" type="integer"/>
+            <element name="height" type="integer"/>
+            <element name="age" type="integer"/>
+            <element name="disease" type="string" minOccurs="0" 
+                                maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <!--  The following element is optional
+            We can also include multiple diseases but they must appear together
+            I.e. we can not have a disease element at the top -->
+    <tns:disease>Cancer</tns:disease>
+    <tns:disease>Diabetes</tns:disease>
+    <tns:disease>Heart Disease</tns:disease>
 
 
 
