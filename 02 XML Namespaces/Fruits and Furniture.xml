@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:fruit="Fruit" xmlns:furn="Furniture">
+	<fruit:table >
+		<fruit:fruit>Apple</fruit:fruit>
+		<fruit:quantity>1</fruit:quantity>
+	</fruit:table>
+	<furn:table >
+		<furn:length>3</furn:length>
+		<furn:width>1.5</furn:width>
+		<furn:height>1</furn:height>
+	</furn:table>
+</root>

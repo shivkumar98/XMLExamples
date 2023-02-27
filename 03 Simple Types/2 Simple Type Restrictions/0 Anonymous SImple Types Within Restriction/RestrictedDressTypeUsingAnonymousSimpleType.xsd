@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/RestrictedDressTypeUsingAnonymousSimpleType"
+	xmlns:tns="http://www.example.org/RestrictedDressTypeUsingAnonymousSimpleType"
+	elementFormDefault="qualified">
+	<simpleType name="dressTypeMedium">
+		<restriction>
+			<simpleType>
+				<restriction base="int" >
+					<minInclusive value="0"></minInclusive>
+					<maxInclusive value="20"></maxInclusive>
+				</restriction>
+			</simpleType>
+		</restriction>
+	</simpleType>
+</schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/SimpleTypeRestriction"
+	xmlns:tns="http://www.example.org/SimpleTypeRestriction"
+	elementFormDefault="qualified">
+	<simpleType name="DressTypeRestricted">
+	<restriction base="tns:dressType">
+		<enumeration value="12"></enumeration>
+	</restriction>
+	</simpleType>
+	
+	<simpleType name="dressType">
+		<restriction base="int">
+			<minInclusive value="0"></minInclusive>
+			<maxInclusive value="20"></maxInclusive>
+		</restriction>
+	</simpleType>
+</schema>

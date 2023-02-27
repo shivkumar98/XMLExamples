@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/simpleContentSchema"
+	xmlns:tns="http://www.example.org/simpleContentSchema"
+	elementFormDefault="qualified">
+	<element name="ALTEN">
+		<complexType>
+			<simpleContent>
+				<extension base="string">
+					<attribute name="name">
+					</attribute>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+</schema>

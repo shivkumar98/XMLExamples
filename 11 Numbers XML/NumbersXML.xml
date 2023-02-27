@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<numbers>
+    <description>Squares and factors of 10..15</description>
+    <number value="10" square="100">
+        <factor value="2" />
+        <factor value="5" />
+    </number>
+    <number value="11" square="121" />
+    <number value="12" square="144">
+        <factor value="2" />
+        <factor value="3" />
+        <factor value="4" />
+        <factor value="6" />
+    </number>
+    1 For more information about XML processing in Groovy see chapter 14. 2 For any given x the factors are all numbers y such that x % y == 0.
+    Listing 11.1 XML example data: Squares and factors of 10–15
+    www.it-ebooks.info
+    346 CHAPTER 11 Working with builders
+    <number value="13" square="169" />
+    <number value="14" square="196">
+        <factor value="2" />
+        <factor value="7" />
+    </number>
+    <number value="15" square="225">
+        <factor value="3" />
+        <factor value="5" />
+    </number>
+</numbers>

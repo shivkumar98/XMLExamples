@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The code was initialised as: <schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/foodDiaryWithAttributesSchema" xmlns:tns="http://www.example.org/foodDiaryWithAttributesSchema" 
+	elementFormDefault="qualified"> </schema> -->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="target"
+	xmlns:tns="foodDiaryWithAttributesSchema" 
+	elementFormDefault="qualified">
+	<element name="foodDiary">
+		<complexType>
+			<attribute name="isFastring">
+				<simpleType>
+					<restriction base="boolean" />
+				</simpleType>
+			</attribute>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/NamedSimpleTypeSchema"
+	xmlns:tns="http://www.example.org/NamedSimpleTypeSchema"
+	elementFormDefault="qualified">
+	<element name="dressSize" type="tns:DressTypeSize"></element>
+	<simpleType name="DressTypeSize">
+		<restriction base="int">
+			<minInclusive value="2"></minInclusive>
+			<maxExclusive value="18"></maxExclusive>
+		</restriction>
+	</simpleType>
+</schema>

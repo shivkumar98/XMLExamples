@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foodDiary xmlns="http://www.example.org/foodDiaryComplexSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/foodDiaryComplexSchema foodDiaryComplexSchema.xsd ">
+	<breakfast>Eggs</breakfast>
+	<lunch>Baked potato</lunch>
+	<dinner>spagetti</dinner>
+</foodDiary>
+

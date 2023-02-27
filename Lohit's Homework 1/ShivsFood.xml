@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<foodDiary xmlns="http://www.example.org/foodDiarySchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/foodDiarySchema foodDiarySchema.xsd ">Breakfast: Eggs, Lunch:sandwich, Dinner:Potato</foodDiary>

@@ -1,0 +1,3 @@
+<simpleType name="DressType">
+	<restriction base="int"></restriction>
+</simpleType>

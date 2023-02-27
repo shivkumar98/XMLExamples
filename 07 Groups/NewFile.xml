@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:product xmlns:tns="http://www.example.org/ProductSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/ProductSchema ProductSchema.xsd ">
+  <tns:number>0</tns:number>
+  <tns:name>tns:name</tns:name>
+  <tns:color></tns:color>
+</tns:product>

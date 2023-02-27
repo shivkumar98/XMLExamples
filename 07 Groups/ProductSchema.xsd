@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/ProductSchema"
+	xmlns:tns="http://www.example.org/ProductSchema"
+	elementFormDefault="qualified">
+	<element name="product">
+		<complexType>
+			<sequence>
+				<element name="number" type="integer" />
+				<element name="name" type="string" />
+				<choice>
+					<element name="size" type="int" />
+					<element name="color" type="string" />
+				</choice>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

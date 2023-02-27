@@ -1,0 +1,9 @@
+<Patient>
+	<name>Shiv Kumar</name> <!-- Max characters should be 15 -->
+	<age>0</age>
+	<email>shiv@email.com</email>
+	<phone>0123456789</phone>
+	<insurance>
+		<cash>123</cash> <!-- integer -->
+	</insurance>
+</Patient>

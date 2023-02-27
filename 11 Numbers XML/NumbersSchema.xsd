@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/NumbersSchema"
+	xmlns:tns="http://www.example.org/NumbersSchema"
+	elementFormDefault="qualified">
+	
+	<element name="numbers" type="tns:numbersType" />
+
+	<complexType name="numbersType" mixed="true">
+		<sequence>
+			<element name="description" type="string" />
+			<element name="number" maxOccurs="unbounded">
+				<complexType>
+					<sequence>
+						<element name="factor" minOccurs="0" maxOccurs="unbounded">
+							<complexType>
+								<attribute name="value" type="int" />
+							</complexType>
+						</element>
+					</sequence>
+					<attribute name="value" type="int" />
+					<attribute name="square" type="int" />
+
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+</schema>

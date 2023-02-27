@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/has1ChildElement"
+	xmlns:tns="http://www.example.org/has1ChildElement"
+	elementFormDefault="qualified">
+	<element name="foodDiary">
+		<complexType>
+			<sequence>
+				<element name="breakfast">
+					<simpleType>
+						<restriction base="string"></restriction>
+					</simpleType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

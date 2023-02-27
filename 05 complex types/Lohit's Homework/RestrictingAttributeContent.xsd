@@ -1,0 +1,20 @@
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/simpleContentSchema"
+	xmlns:tns="http://www.example.org/simpleContentSchema"
+	elementFormDefault="qualified">
+	<element name="ALTEN">
+		<complexType>
+			<simpleContent>
+				<extension base="string">
+					<attribute name="numberOfWorkers">
+						<simpleType>
+						<restriction base="int">
+						</restriction>
+						</simpleType>
+					</attribute>
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+</schema>

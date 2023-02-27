@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/FruitSchema" xmlns:tns="http://www.example.org/FruitSchema" elementFormDefault="qualified">
+<element name="table" type="tns:table"></element>
+<complexType name="table">
+	<sequence>
+		<element name="length"></element>
+		<element name="width"></element>
+		<element name="height"></element>
+	</sequence>
+</complexType>
+</schema>
